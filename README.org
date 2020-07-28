@@ -1,0 +1,30 @@
+* Notes
+** Already Integrate Build Tools Conan
+   - Whenever a new package has been added, remember to invoke
+   #+BEGIN_SRC shell
+    cd build
+    conan install ..
+   #+END_SRC
+   - By default conan download the packages build from gcc or g++, if your cmake
+     use clang to build, invoke the command
+    #+BEGIN_SRC shell
+      cd build
+      conan install --profile clang ..
+    #+END_SRC
+     the profile is locate within directory $HOME/.conan/profiles, in the
+     example above the profile is *clang*
+    a profile example is as below
+   #+begin_example
+     [settings]
+     compiler=clang
+     os=Linux
+     os_build=Linux
+     arch=x86_64
+     arch_build=x86_64
+     compiler.libcxx=libstdc++11
+     compiler.version=10
+
+     [env]
+     CC=/usr/bin/clang
+     CXX=/usr/bin/clang++
+   #+end_example
