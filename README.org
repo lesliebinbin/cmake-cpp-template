@@ -1,30 +1,45 @@
 * Notes
 ** Already Integrate Build Tools Conan
-   - Whenever a new package has been added, remember to invoke
-   #+BEGIN_SRC shell
-    cd build
-    conan install ..
    #+END_SRC
-   - By default conan download the packages build from gcc or g++, if your cmake
-     use clang to build, invoke the command
+   - since in raspberry pi dev kit, maximum gcc, g++ version is 4.9, we can only
+     use c++14
     #+BEGIN_SRC shell
+      rm -rf build
+      mkdir build
       cd build
-      conan install --profile clang ..
+      conan install --profile rpi ..
+      cmake ..
+      make
     #+END_SRC
      the profile is locate within directory $HOME/.conan/profiles, in the
-     example above the profile is *clang*
+     example above the profile is *rpi*
     a profile example is as below
    #+begin_example
+     target_host=arm-linux-gnueabihf
+     standalone_toolchain=/home/zhibin/Desktop/codes-from-github/tools/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf
+     cc_compiler=gcc
+     cxx_compiler=g++
+
      [settings]
-     compiler=clang
-     os=Linux
      os_build=Linux
-     arch=x86_64
      arch_build=x86_64
+     os=Linux
+     arch=armv7
+     compiler=gcc
+     compiler.version=4.9
      compiler.libcxx=libstdc++11
-     compiler.version=10
+     build_type=Release
 
      [env]
-     CC=/usr/bin/clang
-     CXX=/usr/bin/clang++
+     CONAN_CMAKE_FIND_ROOT_PATH=$standalone_toolchain/$target_host/sysroot
+     PATH=[$standalone_toolchain/bin]
+     CHOST=$target_host
+     AR=$target_host-ar
+     AS=$target_host-as
+     RANLIB=$target_host-ranlib
+     LD=$target_host-ld
+     STRIP=$target_host-strip
+     CC=$target_host-$cc_compiler
+     CXX=$target_host-$cxx_compiler
+     CXXFLAGS=-I"$standalone_toolchain/$target_host/lib/include"
    #+end_example
