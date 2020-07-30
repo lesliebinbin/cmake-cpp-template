@@ -1,1 +1,5 @@
-int main(int argc, char *argv[]) { return 0; }
+#include <cstdio>
+
+int main(int argc, char** argv){
+  printf("Hello to the fucking world!\n");
+}

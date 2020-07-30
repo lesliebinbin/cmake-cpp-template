@@ -43,3 +43,6 @@
      CXX=$target_host-$cxx_compiler
      CXXFLAGS=-I"$standalone_toolchain/$target_host/lib/include"
    #+end_example
+** Two Types of Executable Are To Be Built
+   - app (source files under src folder)
+   - test (source files under test folder)
