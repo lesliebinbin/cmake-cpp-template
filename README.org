@@ -7,7 +7,7 @@
       rm -rf build
       mkdir build
       cd build
-      conan install --profile rpi ..
+      conan install --profile rpi .. --build=missing
       cmake ..
       make
     #+END_SRC
