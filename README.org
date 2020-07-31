@@ -28,3 +28,8 @@
      CC=/usr/bin/clang
      CXX=/usr/bin/clang++
    #+end_example
+
+** When Conan Install Failed With Wired Authentication Reason,
+   - This is mostly due to .netrc file when git pull it will pass your auth, but
+     some fucking repo just fail if you carry with your auth, so temporary move
+     .netrc to .netrc-backup, and when download finish, move .netrc-backup to .netrc
