@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.7.13)
-set(RPI_ROOT /home/zhibin/Desktop/codes-from-github/tools)
+set(RPI_ROOT /mnt/another-disk/codes-from-github/tools)
 set(CMAKE_C_COMPILER ${RPI_ROOT}/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-gcc)
 set(CMAKE_CXX_COMPILER ${RPI_ROOT}/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/bin/arm-linux-gnueabihf-g++)
 set(CMAKE_FIND_ROOT_PATH ${RPI_ROOT}/arm-bcm2708/arm-rpi-4.9.3-linux-gnueabihf/arm-linux-gnueabihf/sysroot/)
