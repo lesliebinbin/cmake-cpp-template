@@ -33,3 +33,7 @@
    - This is mostly due to .netrc file when git pull it will pass your auth, but
      some fucking repo just fail if you carry with your auth, so temporary move
      .netrc to .netrc-backup, and when download finish, move .netrc-backup to .netrc
+
+** Quick fix
+for clang++ cross compile We need
+/usr/arm-linux-gnueabi/include/c++/9/arm-linux-gnueabi -I /usr/arm-linux-gnueabi/include
