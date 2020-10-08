@@ -4,6 +4,7 @@ catch2/2.13.0
 fmt/7.0.3
 range-v3/0.10.0
 opencv/3.4.5@conan/stable
+zlib/1.2.11
 
 [generators]
 cmake
